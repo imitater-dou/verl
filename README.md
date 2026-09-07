@@ -169,9 +169,9 @@ verl is fast with:
 
 The performance is essential for on-policy RL algorithm. We have written a detailed [performance tuning guide](https://verl.readthedocs.io/en/latest/perf/perf_tuning.html) to help you optimize performance.
 
-## Upgrade to vLLM >= v0.8.2
+## Use vLLM >= 0.18.0
 
-verl now supports vLLM>=0.8.2 when using FSDP as the training backend. Please refer to [this document](https://github.com/verl-project/verl/blob/main/docs/README_vllm0.8.md) for the installation guide and more information. Please avoid vllm 0.7.x, which contains bugs that may lead to OOMs and unexpected errors.
+verl requires vLLM >= 0.18.0 for inference; older releases are no longer usable. The project currently pins `vllm==0.24.0` in `pyproject.toml`. Please refer to the [installation guide](https://verl.readthedocs.io/en/latest/start/install.html) for setup and more information.
 
 ## Use Latest SGLang
 
