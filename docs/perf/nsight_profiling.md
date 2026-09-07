@@ -10,7 +10,7 @@ Profiling in verl can be configured through several parameters in the trainer co
 
 ### Prerequisites
 
-Nsight Systems version is important, please reference `docker/Dockerfile.vllm.sglang.megatron` for the version we used.
+Nsight Systems version is important, please reference `docker/Dockerfile.stable.vllm` for the version we used.
 
 ### Global profiling control
 
