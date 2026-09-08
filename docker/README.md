@@ -190,10 +190,8 @@ uv run --frozen --all-packages --extra sglang --extra megatron \
 ```
 
 Optional named stages: `--target=prefetch` builds just the baked cache (every
-backend, no source), and `--target=lock` regenerates `uv.lock`. A companion
-`docker/Dockerfile.uv.cu129` builds the cu12.9 / torch-2.9.1 backends (veomni,
-nemoautomodel) the same way; trtllm stays deferred. For the full story — the
-launch flow, the baked-cache mechanics, and re-locking — see
+backend, no source), and `--target=lock` regenerates `uv.lock`. For the full
+story — the launch flow, the baked-cache mechanics, and re-locking — see
 **"Install with uv"** in
 [`docs/start/install.rst`](../docs/start/install.rst).
 
@@ -233,4 +231,3 @@ pip3 install -e .[sglang]
 - 2026/01/17: update vllm stable image to torch==2.9.1, cudnn==9.16, deepep==1.2.1
 - 2025/12/23: update vllm stable image to vllm==0.12.0; update sglang stable image to sglang==0.5.6
 - 2025/11/18: update vllm stable image to vllm==0.11.1; update sglang stable image to sglang==0.5.5
-
