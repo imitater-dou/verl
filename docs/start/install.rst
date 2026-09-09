@@ -224,14 +224,15 @@ Package versions live under ``[project.optional-dependencies]`` in
 (``numpy``, ``kernels``) and the per-engine ``transformers`` pins live under
 ``[tool.uv].override-dependencies``. Update every place the package appears.
 
-``transformers`` tracks the inference engine (its version must match what the
-engine needs): ``vllm`` pins ``5.5.3`` while ``sglang`` and the ``cpu`` dev
-slice pin ``5.3.0``. The training backends (``fsdp`` / ``megatron``) carry no
-``transformers`` pin of their own, so a run inherits the engine it selects
-(``--extra vllm --extra megatron`` -> ``5.5.3``; ``--extra sglang --extra fsdp``
--> ``5.3.0``); a training-only combination falls back to ``5.3.0``. The
-per-engine pins use ``extra`` conflict markers in ``override-dependencies``,
-which uv evaluates per resolution fork.
+``transformers`` is pinned project-wide to ``5.9.0`` under
+``[tool.uv].override-dependencies`` (one version for every backend). Engine
+extras still declare their own floors or hard-pins in comments (``vllm`` needs
+``>=5.5.3``; ``sglang`` historically hard-pinned ``5.6.0``), but the unmarked
+override replaces every requirement on the package so a venv's ``transformers``
+no longer depends on which engine extra was synced. Training backends
+(``fsdp`` / ``megatron``) carry no ``transformers`` pin of their own and inherit
+the same ``5.9.0`` override. Move the override whenever the project-wide pin
+moves, and update every place the package appears.
 
 To try a version without committing, install it into an existing ``.venv``
 (reverted by the next ``uv run`` / ``uv sync``)::
